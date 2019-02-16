@@ -1,0 +1,82 @@
+body
+{
+    background-image: linear-gradient(to right, yellow, red);
+    height: 100vh;
+    
+}
+
+.wrapper {
+    text-align: center; 
+    display: flex; /*Enabling flexbox*/
+    flex-direction: row;  /*Telling it to flex into row (x-axis)*/
+    position: relative; /*Telling child elements to position relative to wrapper instead of body*/
+    height: 70%; /* height of div*/
+    width: 60vw; /* width of div - VIEWPORT*/
+    top: 50%; /* moves it 50% from top of .body*/
+    left: 50%; /* moves it 50% from left of .body*/
+    transform: translate(-50%, -50%);/* moving it back 50% of .wrapper*/
+}
+.playerDiv {
+    display: flex; /*Enabling flexbox*/
+    justify-content: space-between; /* All Children take up entire space, spaced evently */
+    flex-direction: column; /* telling children to go in column*/
+    width:50%; /*50% of parent div - .wrapper*/
+    align-items: center;
+    background: grey;
+}
+
+
+.currentScoreDisplay {
+    background: pink;
+    border: 1px solid black;
+    height: 50px;
+    width: 100px;
+    margin-bottom: 100px;
+}
+
+
+.buttonDiv {
+    background: blue;
+    display: flex; /*Enabling flexbox*/
+    justify-content: space-between; /* All Children take up entire space, spaced evently */
+    flex-direction: column; /* telling children to go in column*/
+    width: 15%; /* telling .buttons to be 15% width of .wrapper*/
+    align-items: center; /* centers flex children along the X axis */
+
+}
+
+button {
+    height: 50px; /* accessing the HTML buttons*/
+    width:100%;
+}
+
+#newgamebutton {
+    margin-top: 5px;
+}
+
+#diceimg {
+    height: 100px;
+    width: 100px;
+    margin: 100px 0;
+}
+
+#holdbutton {
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.nowplaying{
+    visibility: hidden;
+}
+.active {
+    background: white;
+    border: 5px solid black;
+    
+}
+
+.active .nowplaying {
+    visibility: visible;
+    
+}
+
+
