@@ -98,11 +98,11 @@ document.getElementById('diceimg').src=`img/dice${randomNumber}.png`;
 
     ;
 
-        if (randomNumber > 1) {
+        if (randomNumber !== 1) {
             updatedScore = randomNumber + updatedScore;
             document.getElementById('current-' + activePlayer).textContent = updatedScore;
             
-        } if (randomNumber == 1) {
+        } else {
             document.getElementById('diceimg').src=`img/dice${randomNumber}.png`;
 
             
