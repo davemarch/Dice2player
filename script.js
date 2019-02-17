@@ -32,10 +32,10 @@ const resetGame = () => {
 
 // Setting Player Names
 
-    // playerOneName = prompt('Player One Name?');
-    // playerOne.textContent = playerOneName;
-    // playerTwoName = prompt('Player Two Name?');
-    // playerTwo.textContent = playerTwoName;
+    playerOneName = prompt('Player One Name?');
+    playerOne.textContent = playerOneName;
+    playerTwoName = prompt('Player Two Name?');
+    playerTwo.textContent = playerTwoName;
 
 // Resetting Score Values 
 
