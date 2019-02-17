@@ -20,14 +20,14 @@ let gamePlaying = '';
 let randomNumber = 0;
 let activeClass = document.getElementsByClassName('active')
 let activePlayer = +(playerLeft == activeClass);
-let bankScore = [0,0];
+let bankScore = [0, 0];
 let currentScoreVal = document.getElementById('current-' + activePlayer).textContent
 let players = [playerOne, playerTwo];
 
-    const endOfGame = () => {
+const endOfGame = () => {
 
-        if (gamePlaying == false) {
-        document.getElementById('playerLeft').classList.remove('active');    
+    if (gamePlaying == false) {
+        document.getElementById('playerLeft').classList.remove('active');
         document.getElementById('playerRight').classList.remove('active');
     }
 }
@@ -35,155 +35,107 @@ let players = [playerOne, playerTwo];
 
 const resetGame = () => {
     document.getElementById('playerLeft').classList.add('active');
-
-
     gamePlaying = true;
     currentScoreVal = 0;
     bankScore = [0, 0];
     activePlayer = 0;
 
-
-// Setting Player Names
+    // Setting Player Names
 
     playerOneName = prompt('Player One Name?', 'Player One');
     playerOne.textContent = playerOneName;
     playerTwoName = prompt('Player Two Name?', 'Player Two');
     playerTwo.textContent = playerTwoName;
 
-// Resetting Score Values 
+    // Resetting Score Values 
 
-    leftTotal.textContent = 0; 
+    leftTotal.textContent = 0;
     rightTotal.textContent = 0;
     leftCurrentScoreDisplay.textContent = 0;
     rightCurrentScoreDisplay.textContent = 0;
 
-// Hidding Dice Image
+    // Hidding Dice Image
 
     document.getElementById('diceimg').style.visibility = 'hidden';
 
-// Setting player one to active
-  
-    document.getElementById('playerLeft').classList.remove('active');    
-    document.getElementById('playerRight').classList.remove('active');    
+    // Setting player one to active
+
+    document.getElementById('playerLeft').classList.remove('active');
+    document.getElementById('playerRight').classList.remove('active');
     document.getElementById('playerLeft').classList.add('active');
 
-
 }
-// Reset Button 
-
-newGameButton.addEventListener('click', resetGame);
-
-// Roll Dice Button
 
 const getDiceRoll = () => {
-
-    
-
     if (gamePlaying) {
-        
-        
 
-// Show Dice
+        // Show Dice
         document.getElementById('diceimg').style.visibility = 'visible';
 
-        
+        // random number generator 
+        let randomNumber = (Math.floor(Math.random() * 6) + 1);
 
-
-// random number generator 
-    let randomNumber = (Math.floor(Math.random() * 6)+ 1);
-
-// Takes Random Number and Applies it to dice image
-document.getElementById('diceimg').src=`img/dice${randomNumber}.png`;
-
-
-    ;
+        // Takes Random Number and Applies it to dice image
+        document.getElementById('diceimg').src = `img/dice${randomNumber}.png`;
 
         if (randomNumber !== 1) {
             updatedScore = randomNumber + updatedScore;
             document.getElementById('current-' + activePlayer).textContent = updatedScore;
-            
-        } else {
-            document.getElementById('diceimg').src=`img/dice${randomNumber}.png`;
 
-            
+        } else {
+            document.getElementById('diceimg').src = `img/dice${randomNumber}.png`;
             document.getElementById('current-' + activePlayer).textContent = 0;
             nextPlayer();
-
-
         }
+    }
+}
 
-  }
+const nextPlayer = () => {
+    if (activePlayer === 0) {
+        activePlayer = 1
+    } else {
+        activePlayer = 0;
+    }
 
-  
-} 
+    updatedScore = 0;
 
-const nextPlayer = () => { 
+    playerLeft.classList.toggle('active');
+    playerRight.classList.toggle('active');
 
-
-
-          if (activePlayer === 0) {
-            activePlayer = 1
-          } else { 
-            activePlayer = 0;
-          }
-
-          updatedScore = 0;
-          
-
-          playerLeft.classList.toggle('active');
-          playerRight.classList.toggle('active');
-
-           setTimeout(function () {document.getElementById('diceimg').style.visibility = 'hidden';}, 500);
-       }
-
-    
-rollDiceButton.addEventListener('click', getDiceRoll);
+    setTimeout(function () {
+        document.getElementById('diceimg').style.visibility = 'hidden';
+    }, 500);
+}
 
 const holdButtonFunction = () => {
     if (gamePlaying) {
-        
+
         bankScore[activePlayer] = updatedScore + bankScore[activePlayer];
         document.getElementById('total-' + activePlayer).textContent = bankScore[activePlayer];
-        document.getElementById('current-' + activePlayer).textContent = 0; }
+        document.getElementById('current-' + activePlayer).textContent = 0;
+    }
 
-    if (bankScore[0] >= 20){
-        alert(playerOne.textContent +  ' WINS, ' + playerTwo.textContent + ' Loses');
-        document.getElementById('playerRight').classList.remove('active');    
+    if (bankScore[0] >= 20) {
+        alert(playerOne.textContent + ' WINS, ' + playerTwo.textContent + ' Loses');
+        document.getElementById('playerRight').classList.remove('active');
         document.getElementById('playerLeft').classList.remove('active');
         document.getElementById('diceimg').style.visibility = 'hidden';
-        gamePlaying = false;
         
+        gamePlaying = false;
+
     }
-    if (bankScore[1] >= 20){
-        alert(playerTwo.textContent +  ' WINS, ' + playerOne.textContent + ' Loses');
-        document.getElementById('playerRight').classList.remove('active');    
+    if (bankScore[1] >= 20) {
+        alert(playerTwo.textContent + ' WINS, ' + playerOne.textContent + ' Loses');
+        document.getElementById('playerRight').classList.remove('active');
         document.getElementById('playerLeft').classList.remove('active');
         document.getElementById('diceimg').style.visibility = 'hidden';
         gameplaying = false;
 
-        
-
     } else {
-            nextPlayer();
+        nextPlayer();
     }
-    }
-
+}
 
 holdButton.addEventListener('click', holdButtonFunction);
-
-
-
-
-
-
-// }
-
-        
-        
-    //    Check if the player has already won the game or not.
-
-
-    // Event Listeners
-
- 
-
+rollDiceButton.addEventListener('click', getDiceRoll);
+newGameButton.addEventListener('click', resetGame);
