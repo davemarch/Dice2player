@@ -1,7 +1,9 @@
 body
 {
-    background-image: linear-gradient(to right, yellow, red);
+    background-image: linear-gradient(white);
     height: 100vh;
+    font-family: open sans;
+    font-weight: 300;
     
 }
 
@@ -15,6 +17,11 @@ body
     top: 50%; /* moves it 50% from top of .body*/
     left: 50%; /* moves it 50% from left of .body*/
     transform: translate(-50%, -50%);/* moving it back 50% of .wrapper*/
+    box-shadow: 0px 10px 50px; 
+}
+
+h2, h3 {
+    font-weight: 300;
 }
 .playerDiv {
     display: flex; /*Enabling flexbox*/
@@ -24,24 +31,35 @@ body
     align-items: center;
     background: grey;
     opacity: 0.5;
+    border: 5px solid grey;
+}
+
+.playerCurrentText {
+    margin-bottom: 10%;
+}
+
+.playerCurrentScore, .playerScore {
+    font-weight: 600;
 }
 
 
+
 .currentScoreDisplay {
-    background: pink;
+    background: grey;
     border: 1px solid black;
-    height: 50px;
     width: 100px;
     margin-bottom: 100px;
+    box-shadow: 0px 10px 50px;
+    padding: 10px;
 }
 
 
 .buttonDiv {
-    background: blue;
+    background:rgba(50, 50, 50, 1);
     display: flex; /*Enabling flexbox*/
     justify-content: space-between; /* All Children take up entire space, spaced evently */
     flex-direction: column; /* telling children to go in column*/
-    width: 15%; /* telling .buttons to be 15% width of .wrapper*/
+    width: 20%; /* telling .buttons to be 15% width of .wrapper*/
     align-items: center; /* centers flex children along the X axis */
 
 }
@@ -49,21 +67,32 @@ body
 button {
     height: 50px; /* accessing the HTML buttons*/
     width:100%;
+    box-shadow: 0px 10px 50px;
+    border-radius: 10px;
+    font-size: 100%;
+    width: 80%;
+    font-weight: 300;
 }
 
 #newgamebutton {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #diceimg {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     margin: 100px 0;
+    box-shadow: 0px 10px 50px;
 }
+
+.diceanimation {
+    transition-duration: 1s;
+    transform: rotateX(1080deg);
+  }
 
 #holdbutton {
     margin-top: 25px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .nowplaying{
@@ -82,10 +111,12 @@ button {
 }
 
 .bankedScore {
-    background: green;
+    background: grey;
     border: 1px solid black;
     height: auto;
     width: 100px;
+    box-shadow: 0px 10px 50px;
+    font-weight: 300;
 }
 
 
