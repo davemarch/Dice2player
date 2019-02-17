@@ -23,6 +23,7 @@ body
     width:50%; /*50% of parent div - .wrapper*/
     align-items: center;
     background: grey;
+    opacity: 0.5;
 }
 
 
@@ -71,12 +72,20 @@ button {
 .active {
     background: white;
     border: 5px solid black;
+    opacity: 1;
     
 }
 
 .active .nowplaying {
     visibility: visible;
     
+}
+
+.bankedScore {
+    background: green;
+    border: 1px solid black;
+    height: auto;
+    width: 100px;
 }
 
 
